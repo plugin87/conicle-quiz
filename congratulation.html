@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations</title>
+    <link rel="stylesheet" href="css/colors/color.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Favicons
+	================================================== -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            height: 100%;
+            width: 100%;
+        }
+
+        .congrate-message {
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        h1 {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe src="Congratulations.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+
+
+    <canvas height='1' id='confetti' width='1'></canvas>
+    <div class="congrate-message">
+        <h1>ยินดีด้วย! คุณคืออัจฉริยะของ Conicle</h1>
+    </div>
+
+    <script src="js/congratulation.js"></script>
+    <script src="js/widget.js"></script>
+    <script>
+        var audio = document.getElementById("audio");
+audio.src = URL.createObjectURL("Congratulations.mp3");
+audio.load();
+audio.play();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]>
+<!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+	<!-- Basic Page Needs
+	================================================== -->
+	<meta charset="utf-8">
+	<title>Conicle Quiz</title>
+	<meta name="description" content="Creative Template" />
+	<meta name="author" content="IG Design">
+	<meta name="keywords"
+		content="ig design, website, design, html5, css3, jquery, creative, clean, animated, portfolio, blog, one-page, multi-page, corporate, business," />
+
+
+	<!-- Mobile Specific Metas
+	================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="theme-color" content="#fff" />
+	<meta name="msapplication-navbutton-color" content="#fff" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#fff" />
+
+	<!-- Web Fonts 
+	================================================== -->
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900"
+		rel="stylesheet" />
+	<link
+		href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i" rel="stylesheet" />
+
+	<!-- CSS
+	================================================== -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/owl.carousel.css" />
+	<link rel="stylesheet" href="css/owl.transitions.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/colors/color.css" />
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<div class="section full-height height-auto-lg hide-over background-dark-blue-3">
+		<div class="hero-center-wrap relative-on-lg">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="text-lg-left parallax-fade-top align-self-center z-bigger">
+							<h2 class="text-white">สวัสดี, อัจฉริยะของ Conicle อาจจะเป็นคุณ</h2>
+							<p class="mt-3 mb-7 pb-3 font-weight-normal text-white">หากทีมของคุณตอบคำถามได้ถูกต้องและไวที่สุด 
+								คุณจะเป็นผู้ชนะ เกมนี้
+							</p>
+							<p class="mt-3 mb-7 pb-3 font-weight-normal text-white"> (คำใบ้เกมนี้คือ: "I", "T", "Y")</p>
+
+						</div>
+					</div>
+				
+					<div class="col-md-12 mt-5">
+						<div id="quiz1">
+							<div class="form-group quiz-1">
+								<label for="" class="text-white">คำตอบคำที่ 1:</label>
+								<input type="text" id="input1" class="form-control" placeholder="จากคำใบ้ที่คุณสะสมมา จงตอบคำถามเพื่อผ่านไปชิงรางวัล">
+								<input type="text" id="hint1" class="hint">
+							</div>
+							<button type="submit" class="btn btn-primary btn-md" onclick="scoreQuiz(1, 'ABC', 'น่าเสียดายคำตอบนี้ยังไม่ถูกต้อง พยายามใหม่นะ คำใบ้: เป็นคำที่เอามารวมกัน ')">ส่งคำตอบ</button>
+						</div>
+						<div id="quiz2">
+							<div class="form-group quiz-2">
+								<label for="" class="text-white">คำตอบคำที่ 2:</label>
+								<input type="text" id="input2" class="form-control" placeholder="หากคุณตอบคำถามข้อนี้ถูก คุณจะเป็นผู้ชนะ">
+								<input type="text" id="hint2" class="hint">
+							</div>
+							<button type="submit" class="btn btn-primary btn-md" onclick="scoreQuiz(2, 'opportunity', 'น่าเสียดายคำตอบนี้ยังไม่ถูกต้อง พยายามใหม่นะ คำใบ้: เป็นคำที่เอามารวมกัน ')">ส่งคำตอบ</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="particles-js" class="min-height"></div>
+	</div>
+
+
+	<!-- JAVASCRIPT
+    ================================================== -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/plugins.js"></script>
+	
+	<script src="js/particles-dark.js"></script>
+	<script src="js/custom.js"></script>
+
+	<script>
+		$("#quiz1").hide();
+		$(".hint").hide();
+
+		function scoreQuiz(num, ans, hint) {
+			const ansInput = document.getElementById(`input${num}`)
+			const hintInput = document.getElementById(`hint${num}`)
+
+			if (num === 2 && ansInput.value === ans) {
+				window.location.href = "congratulation.html";
+				return
+			}
+
+			if (ansInput.value !== ans) {
+				hintInput.value = hint
+				$(hintInput).show();
+			} else {
+				$(hintInput).hide();
+				alert('correct !@')
+				$("#quiz1").hide();
+				$("#quiz2").show();
+			}
+		}
+	</script>
+
+	<!-- End Document
+================================================== -->
+</body>
+
+
+</html>
